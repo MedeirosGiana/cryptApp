@@ -1,8 +1,12 @@
 package com.crypto.cryptoApp.repository;
 
 import com.crypto.cryptoApp.entity.Coin;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
+@EnableAutoConfiguration
 public class CoinRepository {
     private JdbcTemplate jdbcTemplate;
 
