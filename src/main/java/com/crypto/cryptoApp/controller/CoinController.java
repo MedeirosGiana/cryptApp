@@ -72,6 +72,17 @@ public class CoinController {
         }
     }
 
+    @PutMapping()
+    public ResponseEntity put ( @RequestBody Coin coin){
+        try {
+            coin.setDateTime(new Timestamp(System.currentTimeMillis()));
+            return new ResponseEntity<>(repository.update(coin),HttpStatus.OK);
+
+        }catch (Exception error){
+            return new ResponseEntity<>(error.getMessage(), HttpStatus.NO_CONTENT);
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable int id){
         try {

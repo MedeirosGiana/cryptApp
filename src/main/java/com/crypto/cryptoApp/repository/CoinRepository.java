@@ -1,6 +1,6 @@
 package com.crypto.cryptoApp.repository;
 
-import com.crypto.cryptoApp.dto.CoinDTO;
+import com.crypto.cryptoApp.dto.CoinTransationDTO;
 import com.crypto.cryptoApp.entity.Coin;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,6 +22,8 @@ public class CoinRepository {
     private static String SELECT_BY_NAME = "select * from coin where name = ?";
 
     private static String DELETE = "delete from coin where id = ?";
+
+    private static String UPDATE = "update coin set name = ?,price = ?,quantity = ? where id = ?";
     public CoinRepository(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -36,11 +38,22 @@ public class CoinRepository {
         jdbcTemplate.update(INSERT,attr);
         return coin;
     }
-    public List<CoinDTO> listAll(){
-        return jdbcTemplate.query(SELECT_ALL, new RowMapper<CoinDTO>() {
+
+    public Coin update(Coin coin){
+        Object[] attr = new  Object[]{
+                coin.getName(),
+                coin.getPrice(),
+                coin.getQuantity(),
+                coin.getId()
+        };
+        jdbcTemplate.update(UPDATE,attr);
+        return  coin;
+    }
+    public List<CoinTransationDTO> listAll(){
+        return jdbcTemplate.query(SELECT_ALL, new RowMapper<CoinTransationDTO>() {
             @Override
-            public CoinDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                CoinDTO coinDTO = new CoinDTO();
+            public CoinTransationDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                CoinTransationDTO coinDTO = new CoinTransationDTO();
 
                 coinDTO.setName(rs.getString("name"));
                 coinDTO.setQuantity(rs.getBigDecimal("quantity"));
