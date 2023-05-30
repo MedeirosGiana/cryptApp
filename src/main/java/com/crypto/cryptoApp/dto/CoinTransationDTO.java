@@ -21,4 +21,11 @@ public class CoinTransationDTO {
     public void setQuantity(BigDecimal quantity) {
         this.quantity = quantity;
     }
+
+    public CoinTransationDTO(String name, BigDecimal quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
 }
+
+

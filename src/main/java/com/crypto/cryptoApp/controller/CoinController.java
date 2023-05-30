@@ -3,12 +3,9 @@ package com.crypto.cryptoApp.controller;
 import com.crypto.cryptoApp.entity.Coin;
 import com.crypto.cryptoApp.repository.CoinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
