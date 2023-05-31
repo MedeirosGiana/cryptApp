@@ -17,9 +17,7 @@ public class CoinController {
 
     @GetMapping()
     public ResponseEntity<List> listAll(){
-
         return  new ResponseEntity<>(repository.listAll(),HttpStatus.OK);
-
     }
 
     @GetMapping("/{name}")
@@ -54,11 +52,12 @@ public class CoinController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable int id){
+        boolean response = false;
         try {
-            return new ResponseEntity<>(repository.remove(id),HttpStatus.OK);
-
+            response = repository.remove(id);
+            return new ResponseEntity<>(response,HttpStatus.OK);
         }catch (Exception error){
-            return  new ResponseEntity<>(error.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+            return  new ResponseEntity<>(response,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
