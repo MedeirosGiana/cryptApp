@@ -1,5 +1,7 @@
 # CryptoApp System API 
 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/MedeirosGiana/cryptoApp/blob/main/LICENSE)
+
 ## Visão Geral do Sistema
 
 Projeto web services Java com Spring Boot desenvolvido para gerenciar operações de cryptomoedas.
