@@ -4,7 +4,7 @@
 
 ## Visão Geral do Sistema
 
-Projeto web services Java com Spring Boot desenvolvido para gerenciar operações de cryptomoedas.
+Projeto web services Java com Spring Boot desenvolvido para gerenciamento de carteiras de cryptomoedas, podendo ser realizados operações como salvar transação, listar todas a transações contidas no banco de dados, excluir e atualizar(modificar) transações ou listar as transações pelo nome da moeda desejada.
 
 
 ## Objetivo
