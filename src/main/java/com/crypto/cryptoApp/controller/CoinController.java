@@ -14,7 +14,7 @@ import java.util.List;
 public class CoinController {
     @Autowired
     private CoinRepository repository;
-
+    @CrossOrigin(origins = "http://localhost:63342")
     @GetMapping()
     public ResponseEntity<List> listAll(){
         return  new ResponseEntity<>(repository.listAll(),HttpStatus.OK);
