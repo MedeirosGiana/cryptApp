@@ -42,6 +42,7 @@
 
         <div class="d-flex flex-row justify-content-between">
             <div class="card mt-2">
+                <div class="card-body">
                 <h3>{{formCoin.title}}</h3>
                 <div class="form-group">
                     <label>Nome da crypto</label>
@@ -55,10 +56,10 @@
                     <label>Quantidade</label>
                     <input type="text" class="form-control" v-model="formCoin.quantity"/>
                 </div>
-                <button class="btn btn-primary mt-2" type="button">{{formCoin.button}}</button>
-                <button class="btn btn-warning mt-2" type="button">Limpar</button>
+                <button @click="saveCoin()" class="btn btn-primary mt-2" type="button">{{formCoin.button}}</button>
+                <button style="margin-left: 5px" class="btn btn-warning mt-2" type="button">Limpar</button>
+                </div>
             </div>
-
         </div>
     </div>
 
