@@ -88,9 +88,26 @@ const mainContainer = {
                     })
                     .then(function(){
                         self.showAllCoins()
+                        self.showTransactions(self.formCoin.name)
                         self.cleanForm()
-                         self.showTransactions(self.formCoin.name)
                     })
+                },
+
+                removeTransaction(transaction){
+                    const self = this
+
+                    axios.delete(baseUrl + transaction.id)
+                       .then(function(error){
+                          toastr.success('Transação removida com sucesso!', 'Exclusão')
+                       })
+                       .catch(function (error){
+                           toastr.error('Não foi possível remover a transação' + error, 'Exclusão')
+                      })
+                      .then(function (){
+                       self.showAllCoins()
+                       self.showAllTransactions(transactions.name)
+                       self.cleanForm()
+                      })
                 },
 
             cleanForm(){

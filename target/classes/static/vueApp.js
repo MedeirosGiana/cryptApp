@@ -88,8 +88,8 @@ const mainContainer = {
                     })
                     .then(function(){
                         self.showAllCoins()
+                        self.showTransactions(self.formCoin.name)
                         self.cleanForm()
-                         self.showTransactions(self.formCoin.name)
                     })
                 },
 
