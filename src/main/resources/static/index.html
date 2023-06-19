@@ -29,10 +29,10 @@
                   </thead>
                     <tbody>
                     <tr v-for="coin in coins">
-                        <td>{{ coin.name }}</td>
-                        <td>{{ coin.quantity }}</td>
+                        <td>{{coin.name}}</td>
+                        <td>{{coin.quantity}}</td>
                         <td>
-                            <button class="btn btn-primary" @Click="showTransactions(coin.name)" type="button">Transações</button>
+                            <button  class="btn btn-primary" @click="showTransactions(coin.name)" type="button">Transações</button>
                         </td>
                       </tr>
                     </tbody>
@@ -56,13 +56,13 @@
                     <label>Quantidade</label>
                     <input type="text" class="form-control" v-model="formCoin.quantity"/>
                 </div>
-                    <button @click="saveCoin" class="btn btn-primary mt-2" type="button">{{ formCoin.button}}</button>
+                    <button @click="saveCoin" class="btn btn-primary mt-2" type="button">{{formCoin.button}}</button>
                     <button @click="cleanForm" style="margin-left: 5px" class="btn btn-warning mt-2" type="button">Limpar</button>
                 </div>
             </div>
-            <div v-if="canSeeTranscations" class="card mt-2" style="width: 60%">
+            <div v-if="canSeeTransactions" class="card mt-2" style="width: 60%">
                 <div class="card-body">
-                    <h3>Transações - <span>{{transaction.coinName}}</span></h3>
+                    <h3>Transações - <span>{{transactions.coinName}}</span></h3>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -79,10 +79,10 @@
                                 <td>{{transaction.quantity}}</td>
                                 <td>{{transaction.datetime}}</td>
                                 <td>
-                                    <button class="btn btn-primary" @Click="editTransaction(transaction)" type="button">Editar</button>
+                                    <button class="btn btn-primary" type="button">Editar</button>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger" @Click="removeTransaction(transaction)" type="button">Excluir</button>
+                                    <button class="btn btn-danger" type="button">Excluir</button>
                                 </td>
                             </tr>
                         </tbody>
