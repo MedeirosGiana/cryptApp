@@ -79,7 +79,7 @@
                                 <td>{{transaction.quantity}}</td>
                                 <td>{{transaction.datetime}}</td>
                                 <td>
-                                    <button class="btn btn-primary" type="button">Editar</button>
+                                    <button class="btn btn-primary" @click="editTransaction(transaction)" type="button">Editar</button>
                                 </td>
                                 <td>
                                     <button class="btn btn-danger" @click="removeTransaction(transaction)" type="button">Excluir</button>

@@ -62,7 +62,6 @@ const mainContainer = {
         },
 
        saveCoin(){
-            this.coins = []
             this.formCoin.name = this.formCoin.name.toUpperCase()
             this.formCoin.price =  this.formCoin.price.replace("R$", '')
                 .replace(',', '.').trim()
@@ -71,15 +70,16 @@ const mainContainer = {
                 toastr.error('Todos os campos são obrigatórios.', 'Formulário')
                 return
                 }
-                const coin = {
-                    name: this.formCoin.name,
-                    price: this.formCoin.price,
-                    quantity: this.formCoin.quantity
-                }
 
                 const self = this
 
-                axios.post(baseUrl, coin)
+                if(this.formCoin.isNew){
+                  const coin = {
+                    name: this.formCoin.name,
+                    price: this.formCoin.price,
+                    quantity: this.formCoin.quantity
+                  }
+                   axios.post(baseUrl, coin)
                     .then(function (response){
                         toastr.success('Nova transação cadastrada com sucesso!', 'Formulário')
                     })
@@ -91,7 +91,27 @@ const mainContainer = {
                         self.showTransactions(self.formCoin.name)
                         self.cleanForm()
                     })
-                },
+                }else{
+                    const coin = {
+                       id: this.formCoin.id,
+                       name: this.formCoin.name,
+                       price: this.formCoin.price,
+                       quantity: this.formCoin.quantity
+                    }
+                    axios.put(baseUrl, coin)
+                       .then(function(response){
+                          toastr.success('Transação atualizada com sucesso!', 'Formulário')
+                       })
+                       .catch(function(error){
+                          toastr.error('Não foi possível atualizar transação' + error, )
+                       })
+                        .then(function(){
+                           self.showAllCoins()
+                           self.showTransactions(self.formCoin.name)
+                           self.cleanForm()
+                        })
+                }
+              },
 
                 removeTransaction(transaction){
                     const self = this
@@ -108,6 +128,18 @@ const mainContainer = {
                        self.showAllTransactions(transactions.name)
                        self.cleanForm()
                       })
+                },
+
+                editTransaction(transaction){
+                    this.formCoin = {
+                      isNew: false,
+                      id: transaction.id,
+                      name: transaction.name.toUpperCase(),
+                      price: transaction.price,
+                      quantity: transaction.quantity,
+                      title: 'Editar transação',
+                      button: 'Atualizar'
+                    }
                 },
 
             cleanForm(){
