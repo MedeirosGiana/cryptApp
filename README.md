@@ -30,9 +30,10 @@ Para executar o projeto em seu ambiente de desenvolvimento, Certifique-se de ter
 - realizar o git clone [git@github.com: MedeirosGiana/cryptoApp.git](https://github.com/MedeirosGiana/cryptoApp.git)
 - subir o projeto na sua IDE de preferência
 - executar o projeto e acessar  um navegador da Web em **http://localhost:8080/coin**  para visualizar os dados salvos de forma personalizada ou  **MySql Workbench** para se conectar ao banco MySql e visualizar no banco as tabelas salvas
-- para **inserir, deletar, atualizar, listar** -> utilizar o navegador de preferência conforme a sugestão informada no package da aplicação **resources->static->index.html**. e realizar as operações desejadas conforme formulário abaixo.
+- para **inserir, deletar, atualizar, listar** -> utilizar o navegador de preferência conforme a sugestão informada no package da aplicação **resources->static->index.html**. e realizar as operações desejadas conforme formulário abaixo, click no botão transações da moeda desejada para visualizar o histórico de todas as transações.
 
-![image](https://github.com/MedeirosGiana/cryptoApp/assets/100285143/d9860784-83e9-4513-b328-1badcc31e9ae)
+![image](https://github.com/MedeirosGiana/cryptoApp/assets/100285143/ff4dc658-2dfe-44ed-951b-a990a4046a1a)
+
 
 
 ## Tecnologias e Ferramentas Utilizadas Back-end
